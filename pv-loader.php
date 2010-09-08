@@ -30,7 +30,7 @@ Copyright 2010 Sean Carmody  (email : sean@stubbornmule.net)
 
 wp_enqueue_script('protovis', WP_PLUGIN_URL.'/pv-loader/js/protovis-r3.2.js');
 
-function sProtovis($atts, $content = null) {
+function sProtovisLoad($atts, $content = null) {
    extract(shortcode_atts(array(
                                'src' => '#',
                                'img' => '#',
@@ -44,6 +44,6 @@ function sProtovis($atts, $content = null) {
    $caption = '<p align="center"><strong>'.do_shortcode($content).'</strong></p>';
    return $script.$no_script.$caption;
 }
-add_shortcode('pvis', 'sProtovis');
+add_shortcode('pvis', 'sProtovisLoad');
 
 ?>
