@@ -60,6 +60,7 @@ function sProtovisLoad($atts, $content = null) {
 		$caption = '<p align="center"><strong>'.do_shortcode($content).'</strong></p>';
 	else
 		$caption = '';
+
 	return $script.$no_script.$caption;
 }
 add_shortcode('pvis', 'sProtovisLoad');
