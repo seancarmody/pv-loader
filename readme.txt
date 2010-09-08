@@ -51,6 +51,7 @@ Not yet.
 This list is not really prioritised yet.
 
 1. Improve user-agent (browser) detection
+1. Allow selective inclusion of the Protovis library in headers (at the moment it will be loaded for every page, whether you use it or not).
 1. Create an options page
 1. Allow for alterntive specification of the protovis js library
 1. Replace tags in the imported script to allow shortcode parameters to be used in the script
