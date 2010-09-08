@@ -1,6 +1,8 @@
-=== JS Libraries ===
+JS Libraries
+============
 
-== Protovis ==
+Protovis
+--------
 
 [Protovis](http://vis.stanford.edu/protovis/) is a javascript data visualization library.
 

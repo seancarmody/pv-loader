@@ -14,9 +14,9 @@ Creates a shortcode to faciliate the use of Protovis scripts.
 
 == Installation ==
 
-1. Upload `proto-ldr` to the `/wp-content/plugins/` directory
+1. Upload 'pv-loader' to the '/wp-content/plugins/' directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Use the [protovis] tag to add protovis code to your post
+1. Use the [pvis] shortcode to add protovis code to your post
 
 == Frequently Asked Questions ==
 
