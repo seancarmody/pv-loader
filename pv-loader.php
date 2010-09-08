@@ -37,8 +37,9 @@ function sProtovisLoad($atts, $content = null) {
 		'alt' => '',
 	), $atts));
 	
-	// Check for Internet Explorer (IE) which does not support SVG
+	// Check for browsers which does not support SVG
 	$using_ie = (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE);
+	$using_android = (strpos($_SERVER['HTTP_USER_AGENT'], 'Android') !== FALSE);
 	
 	if ( !$alt )
 		$alt = 'Scripts disabled, cannot display chart!';
@@ -48,7 +49,7 @@ function sProtovisLoad($atts, $content = null) {
 	else
 		$no_script = $alt;
 	
-	if ( $using_ie )
+	if ( $using_ie || $using_android )
 		$script = '';
 	else {
 		$no_script = "<noscript>$no_script</noscript>";
