@@ -20,6 +20,22 @@ Creates a shortcode to faciliate the use of Protovis scripts.
 
 == Frequently Asked Questions ==
 
+= What is the syntax of the pvis shortcode? =
+
+Here is an example:
+
+[pvis src="/scripts/pv/my-chart.js" img="images/fail.png"]My caption[/pvis]
+
+src specifies the location of the protovis script
+img specifes the URL of an image to display instead if scripts are blocked
+alt speficies image alternative text
+
+text between the tags will be set as a caption
+
+= Is there any CSS control possible =
+
+Not yet.
+
 = Which Protovis library does the plugin use? =
 
 Currently version Protovis 3.2 ships with the plugin.
@@ -30,9 +46,16 @@ Not yet.
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the directory of the stable readme.txt, so in this case, `/tags/4.3/screenshot-1.png` (or jpg, jpeg, gif)
-2. This is the second screen shot
+== To-Do List ==
+
+This list is not really prioritised yet.
+
+1. Improve user-agent (browser) detection
+1. Create an options page
+1. Allow for alterntive specification of the protovis js library
+1. Replace tags in the imported script to allow shortcode parameters to be used in the script
+
+I'm sure there'll be a lot more!
 
 == Changelog ==
 
