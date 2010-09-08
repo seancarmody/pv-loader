@@ -32,16 +32,34 @@ wp_enqueue_script('protovis', WP_PLUGIN_URL.'/pv-loader/js/protovis-r3.2.js');
 
 function sProtovisLoad($atts, $content = null) {
 	extract(shortcode_atts(array(
-		'src' => '#',
-		'img' => '#',
+		'src' => '',
+		'img' => '',
+		'alt' => '',
 	), $atts));
+	
+	// Check for Internet Explorer (IE) which does not support SVG
+	$using_ie = (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== FALSE);
+	
+	if ( !$alt )
+		$alt = 'Scripts disabled, cannot display chart!';
+
 	if ( $img )
-		$no_script = "<noscript><img src='$img'></noscript>";
+		$no_script = "<img src='$img' alt='$alt'>";
 	else
-		$no_script = '<noscript>Scripts disabled, cannot display image!</noscript>';
-	$script = file_get_contents($src);
-	$script = '<script type="text/javascript+protovis">'."\n".$script.'</script>';
-	$caption = '<p align="center"><strong>'.do_shortcode($content).'</strong></p>';
+		$no_script = $alt;
+	
+	if ( $using_ie )
+		$script = '';
+	else {
+		$no_script = "<noscript>$no_script</noscript>";
+		$script = file_get_contents($src);
+		$script = '<script type="text/javascript+protovis">'."\n".$script.'</script>';
+	}
+	
+	if ( $content )
+		$caption = '<p align="center"><strong>'.do_shortcode($content).'</strong></p>';
+	else
+		$caption = '';
 	return $script.$no_script.$caption;
 }
 add_shortcode('pvis', 'sProtovisLoad');
