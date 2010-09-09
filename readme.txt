@@ -10,7 +10,16 @@ Creates a shortcode to faciliate the use of [Protovis](http://vis.stanford.edu/p
 
 == Description ==
 
-Creates a shortcode to faciliate the use of Protovis scripts.
+Protovis Loader is a plugin which faciliates the use of Protovis  scripts. Protovis is a javascript data visualisation library being developed at Stanford, which allows the creation of interactive charts on web pages.
+
+Incorporating Javascript code into WordPress posts can be tricky as it (deliberately) sanitises text typed into posts, which interferes with Javascript. When I first began experimenting with Javascript, this cause me some difficulties, as described in this post. In the end, I decided to roll up my sleeves and write a plugin to make the whole process a lot easier. Protovis Loader was the result.
+
+Protovis Loader makes the whole process a lot easier in two ways:
+
+1. It ships with a copy of the Protovis javascript library and once the plugin is activated, links to the library will automatically be included in page headers.
+1. It creates a “shortcode” which makes it very easy to include Protovis scripts in blog posts and pages.
+
+You can see it in action on [the Stubborn Mule](http://www.stubbornmule.net/resources/protovis-loader/).
 
 == Installation ==
 
@@ -46,6 +55,9 @@ Not yet.
 
 == Screenshots ==
 
+1. Using the shortcode in [a blog post](http://www.stubbornmule.net/2010/09/protovis-for-chrome-and-safari/)
+1. The end result.
+
 == To-Do List ==
 
 This list is not really prioritised yet.
@@ -53,6 +65,7 @@ This list is not really prioritised yet.
 1. Improve user-agent (browser) detection
 1. Allow selective inclusion of the Protovis library in headers (at the moment it will be loaded for every page, whether you use it or not).
 1. Create an options page
+1. Incorporate CSS support
 1. Allow for alterntive specification of the protovis js library
 1. Replace tags in the imported script to allow shortcode parameters to be used in the script
 
