@@ -28,7 +28,31 @@ Copyright 2010 Sean Carmody  (email : sean@stubbornmule.net)
     Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
-wp_enqueue_script('protovis', WP_PLUGIN_URL.'/pv-loader/js/protovis-r3.2.js');
+/* Conditionally load the Protovis library
+Technique taken from beer planet:
+http://beerpla.net/2010/01/13/wordpress-plugin-development-how-to-include-css-and-javascript-conditionally-and-only-when-needed-by-the-posts/
+*/
+
+add_filter('the_posts', 'conditionally_add_pv'); // the_posts gets triggered before wp_head
+function conditionally_add_pv($posts){
+	if (empty($posts)) return $posts;
+ 
+	$shortcode_found = false; // this flag is triggered if the library need to be enqueued
+	foreach ($posts as $post) {
+		if (stripos($post->post_content, '[pvis]')) {
+			$shortcode_found = true;
+			break;
+		}
+	}
+ 
+	if ($shortcode_found) {
+		// place-holder to enqueue CSS as well
+		//wp_enqueue_style('my-style', '/style.css');
+		wp_enqueue_script('protovis', WP_PLUGIN_URL.'/protovis-loader/js/protovis-r3.2.js');
+	}
+ 
+	return $posts;
+}
 
 function sProtovisLoad($atts, $content = null) {
 	extract(shortcode_atts(array(
