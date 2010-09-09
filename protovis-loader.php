@@ -33,13 +33,14 @@ Technique taken from beer planet:
 http://beerpla.net/2010/01/13/wordpress-plugin-development-how-to-include-css-and-javascript-conditionally-and-only-when-needed-by-the-posts/
 */
 
+// TO-DO: use a variable for the shortcode
 add_filter('the_posts', 'conditionally_add_pv'); // the_posts gets triggered before wp_head
 function conditionally_add_pv($posts){
 	if (empty($posts)) return $posts;
  
 	$shortcode_found = false; // this flag is triggered if the library need to be enqueued
 	foreach ($posts as $post) {
-		if (stripos($post->post_content, '[pvis]')) {
+		if (stripos($post->post_content, 'pvis')) { // look for the string 'pvis'
 			$shortcode_found = true;
 			break;
 		}
@@ -54,8 +55,8 @@ function conditionally_add_pv($posts){
 	return $posts;
 }
 
-// Conditional loading not working yet!
-wp_enqueue_script('protovis', WP_PLUGIN_URL.'/protovis-loader/js/protovis-r3.2.js');
+// Uncomment to force library to load every time
+//wp_enqueue_script('protovis', WP_PLUGIN_URL.'/protovis-loader/js/protovis-r3.2.js');
 
 function sProtovisLoad($atts, $content = null) {
 	extract(shortcode_atts(array(
