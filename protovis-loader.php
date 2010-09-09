@@ -54,6 +54,9 @@ function conditionally_add_pv($posts){
 	return $posts;
 }
 
+// Conditional loading not working yet!
+wp_enqueue_script('protovis', WP_PLUGIN_URL.'/protovis-loader/js/protovis-r3.2.js');
+
 function sProtovisLoad($atts, $content = null) {
 	extract(shortcode_atts(array(
 		'src' => '',
