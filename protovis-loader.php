@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Protovis_Loader
- * @version 0.0.1
+ * @version 0.1
  */
 /*
 Plugin Name: Protovis Loader
