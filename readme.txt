@@ -42,7 +42,7 @@ Attributes:
 * img: specifes the URL of an image to display instead if scripts are blocked
 * alt: speficies image alternative text
 
-Text between the tags will be set as a caption
+Any text between the tags will be set as a caption
 
 = Can I specifiy  any CSS? =
 
